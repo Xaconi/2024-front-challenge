@@ -1,6 +1,6 @@
 // Styles
 import Image from 'next/image';
-import stylesHeader from './header.module.css';
+import stylesHeader from './header.module.scss';
 
 export default function Header() {
     return (
@@ -9,6 +9,7 @@ export default function Header() {
                 src="/Logo_KaveHome.svg"
                 width={172}
                 height={31}
+                className={stylesHeader.header__khlogo}
                 alt="Kave Home logo"
             />
 
