@@ -46,7 +46,12 @@ export default function ProductList(props: { products: Array<ProductModel>, hasL
             }
 
             {props.hasPaginator &&
-                <Paginator currentPage={currentPage} pageLimit={MAX_PAGES} maxPage={props.products.length / DEFAULT_PRODUCTS_SIZE} goToPage={goToPage} />
+                <Paginator
+                    currentPage={currentPage}
+                    pageLimit={MAX_PAGES}
+                    maxPage={props.products.length / DEFAULT_PRODUCTS_SIZE}
+                    goToPage={goToPage}
+                />
             }
         </section>
     )

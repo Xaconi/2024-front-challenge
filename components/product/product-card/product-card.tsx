@@ -5,12 +5,27 @@ import styles from './product-card.module.scss';
 import { ImageWithFallback } from "../../image-with-fallback/image-with-fallback";
 import Image from "next/image";
 import Link from "next/link";
+import { addProductToFavorites, checkIfFavorite, removeProductFromFavorites } from "@/helpers/addToFavorites";
+import { useEffect, useState } from "react";
 
 export default function ProductCard(props: { product: ProductModel }) {
 
+    const [isFavorite, setIsFavorite] = useState(false);
+
+    useEffect(() => {
+        setIsFavorite(checkIfFavorite(props.product.productSku));
+    }, [])
+
     const addToFavorites = (event: any) => {
         event.preventDefault();
-        console.log(`ADD ${props.product.productSku} TO FAVORITES`)
+        addProductToFavorites(props.product.productSku);
+        setIsFavorite(true);
+    }
+
+    const removeFromFavorites = (event: any) => {
+        event.preventDefault();
+        removeProductFromFavorites(props.product.productSku);
+        setIsFavorite(false);
     }
 
     return (
@@ -25,14 +40,23 @@ export default function ProductCard(props: { product: ProductModel }) {
                     fallback="/Product.webp"
                 />
 
-                <button className={styles.product__favoriteBtn} onClick={addToFavorites}>
+                {!isFavorite && <button className={styles.product__favoriteBtn} onClick={addToFavorites}>
                     <Image
                         src="/Favorite_Icon.svg"
                         width={22}
                         height={19}
                         alt="Add to Favorites"
                     />
-                </button>
+                </button>}
+
+                {isFavorite && <button className={styles.product__favoriteBtn} onClick={removeFromFavorites}>
+                    <Image
+                        src="/Favorite_Icon_Filled.svg"
+                        width={22}
+                        height={19}
+                        alt="Remove from Favorites"
+                    />
+                </button>}
             </div>
 
             <h3 className={`${styles.product__title} khui-text khui-text--bold khui-text--xm khui-color-dark-grey`}>
