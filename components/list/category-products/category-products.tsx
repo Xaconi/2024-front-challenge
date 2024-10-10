@@ -1,10 +1,10 @@
 import ProductList from '@/components/product/product-list/product-list';
-import { getFeaturedProducts } from '@/services/products';
+import { getListProducts } from '@/services/products';
 import style from './category-products.module.scss';
 
 export default async function CategoryProducts() {
 
-    const products = await getFeaturedProducts();
+    const products = await getListProducts();
 
     return (
         <section className={style.categoryProducts}>

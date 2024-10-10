@@ -5,7 +5,7 @@ import styles from './product-card.module.scss';
 import { ImageWithFallback } from "../../image-with-fallback/image-with-fallback";
 import Image from "next/image";
 import Link from "next/link";
-import { addProductToFavorites, checkIfFavorite, removeProductFromFavorites } from "@/helpers/addToFavorites";
+import { addProductToFavorites, checkIfFavorite, removeProductFromFavorites } from "@/helpers/favorites";
 import { useEffect, useState } from "react";
 
 export default function ProductCard(props: { product: ProductModel }) {
@@ -18,13 +18,13 @@ export default function ProductCard(props: { product: ProductModel }) {
 
     const addToFavorites = (event: any) => {
         event.preventDefault();
-        addProductToFavorites(props.product.productSku);
+        addProductToFavorites(props.product);
         setIsFavorite(true);
     }
 
     const removeFromFavorites = (event: any) => {
         event.preventDefault();
-        removeProductFromFavorites(props.product.productSku);
+        removeProductFromFavorites(props.product);
         setIsFavorite(false);
     }
 

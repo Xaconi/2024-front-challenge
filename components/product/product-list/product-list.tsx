@@ -36,7 +36,7 @@ export default function ProductList(props: { products: Array<ProductModel>, hasL
     return (
         <section className={style.productList}>
             <div className={style.productList__products}>
-                {showedProducts.current.map(product => (
+                {showedProducts && showedProducts?.current && showedProducts?.current?.map(product => (
                     <ProductCard key={product.productSku} product={product} />
                 ))}
             </div>

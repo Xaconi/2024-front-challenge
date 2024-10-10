@@ -1,0 +1,29 @@
+.favorites {
+  &__title {
+    margin-top: 70px;
+    margin-bottom: 9px;
+    font-size: 32px;
+    line-height: 43.58px;
+    font-weight: 400;
+
+    @media (width <=768px) {
+      margin-top: 46.5px;
+      margin-bottom: 15px;
+      font-size: 26px;
+      line-height: 35.41px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 57px;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+
+    @media (width <=768px) {
+      font-size: 16px;
+      line-height: 22px;
+      margin-bottom: 43px;
+    }
+  }
+}

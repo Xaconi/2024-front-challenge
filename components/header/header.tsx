@@ -1,8 +1,13 @@
 // Styles
 import Image from 'next/image';
 import stylesHeader from './header.module.scss';
+import { headers } from 'next/headers';
 
 export default function Header() {
+    const headerList = headers();
+    const pathname = headerList.get("x-current-path");
+    const isFavoritePath = pathname === '/favorites';
+
     return (
         <header className={stylesHeader.header}>
             <Image
@@ -13,12 +18,20 @@ export default function Header() {
                 alt="Kave Home logo"
             />
 
-            <Image
+            {!isFavoritePath && <Image
                 src="/Favorite_Icon.svg"
                 width={22}
                 height={19}
                 alt="Favorites"
-            />
+            />}
+
+
+            {isFavoritePath && <Image
+                src="/Favorite_Icon_Filled.svg"
+                width={22}
+                height={19}
+                alt="Favorites"
+            />}
         </header>
     )
 }
