@@ -1,0 +1,17 @@
+.homeSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    &__title {
+        padding: 5px 9px 8px 9px;
+        color: var(--khui-color-black);
+        line-height: 21px;
+    }
+
+    &__img {
+        width: 198px;
+        height: 149px;
+    }
+}

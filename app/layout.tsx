@@ -4,7 +4,10 @@ import type { Metadata } from "next";
 // CSS
 import "./reset.css";
 import "./globals.css";
-import "./khui.css";
+import "./khui.scss";
+import Header from "@/components/header/header";
+
+import { poppinsFont, notoSerifFont } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body>
+      <body className={`${poppinsFont.variable} ${notoSerifFont.variable}`}>
+        <Header></Header>
         {children}
       </body>
     </html>

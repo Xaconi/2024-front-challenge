@@ -1,0 +1,35 @@
+.home {}
+
+.homeSections {
+  &__title {
+    margin-bottom: 21px;
+
+    @media (width <=768px) {
+      font-size: 24px;
+      line-height: 33px;
+    }
+  }
+}
+
+.homeMenu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.homeSubsectionsWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 191px;
+}
+
+.homeSubsections {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
+  padding: 0 22px;
+  overflow: auto;
+}

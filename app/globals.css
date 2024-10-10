@@ -1,3 +1,14 @@
 :root {
+  /* Fonts */
+  --font-noto-serif: 'Noto Serif';
+  --font-poppins: 'Poppins';
+
+  /* Colors*/
+  --khui-color-black: #000000;
   --khui-color-white: #FFFFFF;
+  --khui-color-dark-grey: #4A4A4A;
+  --khui-color-light-grey: #F5F5F5;
+
+  /* Z-Index */
+  --z-index-level-5: 5;
 }
