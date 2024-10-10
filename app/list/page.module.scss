@@ -1,0 +1,19 @@
+.list {
+  &__title {
+    margin-top: 70px;
+    margin-bottom: 9px;
+
+    @media (width <=768px) {
+      margin-top: 56.5px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 70px;
+
+    @media (width <=768px) {
+      margin-bottom: 48px;
+    }
+  }
+}

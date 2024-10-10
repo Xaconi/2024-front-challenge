@@ -1,7 +1,11 @@
 .khui-title {
     font-family: var(--font-noto-serif);
 
-    &--xl {}
+    &--xl {
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 43.58px;
+    }
 
     &--l {
         font-weight: 400;
@@ -13,6 +17,12 @@
         font-weight: 400;
         font-size: 24px;
         line-height: 32px;
+    }
+
+    &--s {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 30px;
     }
 }
 

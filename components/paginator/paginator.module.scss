@@ -1,0 +1,17 @@
+.paginator {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    column-gap: 16px;
+
+    &__page {
+        font-size: 18px;
+        font-weight: 400;
+        font-family: var(--font-poppins);
+        line-height: 27px;
+
+        &Selected {
+            font-weight: 700;
+        }
+    }
+}
