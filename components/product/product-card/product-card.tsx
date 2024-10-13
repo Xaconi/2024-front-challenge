@@ -3,33 +3,13 @@
 import { Product as ProductModel } from "@/models/products";
 import styles from './product-card.module.scss';
 import { ImageWithFallback } from "../../image-with-fallback/image-with-fallback";
-import Image from "next/image";
 import Link from "next/link";
-import { addProductToFavorites, checkIfFavorite, removeProductFromFavorites } from "@/helpers/favorites";
-import { useEffect, useState } from "react";
+import AddToFavoritesBtn from "../add-to-favorites-btn/add-to-favorites-btn";
 
 export default function ProductCard(props: { product: ProductModel }) {
 
-    const [isFavorite, setIsFavorite] = useState(false);
-
-    useEffect(() => {
-        setIsFavorite(checkIfFavorite(props.product.productSku));
-    }, [])
-
-    const addToFavorites = (event: any) => {
-        event.preventDefault();
-        addProductToFavorites(props.product);
-        setIsFavorite(true);
-    }
-
-    const removeFromFavorites = (event: any) => {
-        event.preventDefault();
-        removeProductFromFavorites(props.product);
-        setIsFavorite(false);
-    }
-
     return (
-        <Link className={styles.product} href="#">
+        <Link className={styles.product} href={`/product/${props.product.productSku}`}>
             <div className={styles.product__imgWrapper}>
                 <ImageWithFallback
                     src={props.product.productImageUrl}
@@ -40,23 +20,10 @@ export default function ProductCard(props: { product: ProductModel }) {
                     fallback="/Product.webp"
                 />
 
-                {!isFavorite && <button className={styles.product__favoriteBtn} onClick={addToFavorites}>
-                    <Image
-                        src="/Favorite_Icon.svg"
-                        width={22}
-                        height={19}
-                        alt="Add to Favorites"
-                    />
-                </button>}
-
-                {isFavorite && <button className={styles.product__favoriteBtn} onClick={removeFromFavorites}>
-                    <Image
-                        src="/Favorite_Icon_Filled.svg"
-                        width={22}
-                        height={19}
-                        alt="Remove from Favorites"
-                    />
-                </button>}
+                <AddToFavoritesBtn
+                    product={props.product}
+                    className={styles.product__favoriteBtn}
+                />
             </div>
 
             <h3 className={`${styles.product__title} khui-text khui-text--bold khui-text--xm khui-color-dark-grey`}>

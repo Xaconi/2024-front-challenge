@@ -23,3 +23,12 @@ export function getFavoriteProducts(): Array<Product> {
     const favoriteProducts = getFavorites();
     return favoriteProducts;
 }
+
+export async function getProductDetail(productSku: string): Product {
+    const products = await getListProducts();
+    const productDetail = products.find(product => product.productSku === productSku);
+
+    // TODO - ERROR 404
+
+    return productDetail!;
+}
