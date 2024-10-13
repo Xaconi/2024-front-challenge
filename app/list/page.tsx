@@ -1,6 +1,7 @@
 import styles from "./page.module.scss";
 import "../khui.scss";
 import CategoryProducts from "@/components/list/category-products/category-products";
+import { Metadata } from "next";
 
 export default function List() {
 
@@ -17,4 +18,10 @@ export default function List() {
       <CategoryProducts />
     </section>
   );
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Listado de productos | Kave Home',
+  }
 }

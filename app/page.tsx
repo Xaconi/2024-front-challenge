@@ -4,6 +4,7 @@ import HomeMenu from "@/components/home/home-menu/home-menu";
 import HomeSection from "@/components/home/home-section/home-section";
 import HomeFeaturedProducts from "@/components/home/home-featured-products/home-featured-products";
 import HomePresentation from "@/components/home/home-presentation/home-presentation";
+import { Metadata } from "next";
 
 export default function Home() {
 
@@ -40,4 +41,10 @@ export default function Home() {
       </section>
     </section>
   );
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'KaveHome.com - Muebles y decoración | Kave Home',
+  }
 }

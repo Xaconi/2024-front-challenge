@@ -1,6 +1,7 @@
 import Image from "next/image";
 import '../../khui.scss'
 import styles from "./not-found.module.scss";
+import { Metadata } from "next";
 
 export default async function NotFound() {
 
@@ -19,4 +20,10 @@ export default async function NotFound() {
             />
         </section>
     );
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+    return {
+        title: '404 Página no encontrada | Kave Home',
+    }
 }

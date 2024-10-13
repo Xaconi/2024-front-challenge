@@ -4,6 +4,7 @@ import "../../khui.scss";
 import { getProductDetail } from "@/services/products";
 import Image from "next/image";
 import AddToFavoritesBtn from "@/components/product/add-to-favorites-btn/add-to-favorites-btn";
+import { Metadata } from 'next';
 
 export default async function Product({ params }: { params: { productSku: string } }) {
 
@@ -45,4 +46,18 @@ export default async function Product({ params }: { params: { productSku: string
       </div>
     </section>
   );
+}
+
+export async function generateMetadata({ params }: { params: { productSku: string } }): Promise<Metadata> {
+
+  const product = await getProductDetail(params.productSku);
+
+  if (!product) return notFound();
+
+  return {
+    title: product.productName + ' | Kave Home',
+    openGraph: {
+      images: [product.productImageUrl],
+    },
+  }
 }

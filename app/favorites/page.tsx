@@ -1,6 +1,7 @@
 import styles from "./page.module.scss";
 import "../khui.scss";
 import FavoriteProducts from "@/components/favorites/favorite-products/favorite-products";
+import { Metadata } from "next";
 
 export default function Favorites() {
 
@@ -18,3 +19,10 @@ export default function Favorites() {
     </section>
   );
 }
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Productos favoritos | Kave Home',
+  }
+}
+
