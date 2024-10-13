@@ -18,7 +18,7 @@ export default function FavoriteProducts() {
     return (
         <>
             {products.length > 0 && <section className={style.categoryProducts}>
-                <ProductList products={products} hasPaginator={true} />
+                <ProductList products={products} />
             </section>}
         </>
     )
