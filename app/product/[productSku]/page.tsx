@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation'
 import styles from "./page.module.scss";
 import "../../khui.scss";
 import { getProductDetail } from "@/services/products";
@@ -7,6 +8,8 @@ import AddToFavoritesBtn from "@/components/product/add-to-favorites-btn/add-to-
 export default async function Product({ params }: { params: { productSku: string } }) {
 
   const product = await getProductDetail(params.productSku);
+
+  if (!product) return notFound();
 
   return (
     <section className={styles.product}>
