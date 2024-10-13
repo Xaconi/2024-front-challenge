@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import stylesHeader from './header.module.scss';
 import { headers } from 'next/headers';
+import Link from 'next/link';
 
 export default function Header() {
     const headerList = headers();
@@ -10,28 +11,40 @@ export default function Header() {
 
     return (
         <header className={stylesHeader.header}>
-            <Image
-                src="/Logo_KaveHome.svg"
-                width={172}
-                height={31}
-                className={stylesHeader.header__khlogo}
-                alt="Kave Home logo"
-            />
+            <Link href="/">
+                <Image
+                    src="/Logo_KaveHome.svg"
+                    width={172}
+                    height={31}
+                    className={stylesHeader.header__khlogo}
+                    alt="Kave Home logo"
+                />
+            </Link>
 
-            {!isFavoritePath && <Image
-                src="/Favorite_Icon.svg"
-                width={22}
-                height={19}
-                alt="Favorites"
-            />}
+            {!isFavoritePath &&
+                <Link href="/favorites">
+                    <Image
+                        src="/Favorite_Icon.svg"
+                        width={22}
+                        height={19}
+                        alt="Favorites"
+                        className={stylesHeader.header__favoritesLink}
+                    />
+                </Link>
+            }
 
 
-            {isFavoritePath && <Image
-                src="/Favorite_Icon_Filled.svg"
-                width={22}
-                height={19}
-                alt="Favorites"
-            />}
+            {isFavoritePath &&
+                <Link href="/favorites">
+                    <Image
+                        src="/Favorite_Icon_Filled.svg"
+                        width={22}
+                        height={19}
+                        alt="Favorites"
+                        className={stylesHeader.header__favoritesLink}
+                    />
+                </Link>
+            }
         </header>
     )
 }

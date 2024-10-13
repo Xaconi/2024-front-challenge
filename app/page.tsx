@@ -27,12 +27,12 @@ export default function Home() {
 
         <div className={styles.homeSubsectionsWrapper}>
           <div className={styles.homeSubsections}>
-            <HomeSection title="We are Kave" link="#" img="/Subsection.webp" />
-            <HomeSection title="Estancias" link="#" img="/Subsection.webp" />
-            <HomeSection title="Muebles" link="#" img="/Subsection.webp" />
-            <HomeSection title="Decoración" link="#" img="/Subsection.webp" />
-            <HomeSection title="Proyectos" link="#" img="/Subsection.webp" />
-            <HomeSection title="Estilos" link="#" img="/Subsection.webp" />
+            <HomeSection title="We are Kave" link="/list" img="/Subsection.webp" />
+            <HomeSection title="Estancias" link="/list" img="/Subsection.webp" />
+            <HomeSection title="Muebles" link="/list" img="/Subsection.webp" />
+            <HomeSection title="Decoración" link="/list" img="/Subsection.webp" />
+            <HomeSection title="Proyectos" link="/list" img="/Subsection.webp" />
+            <HomeSection title="Estilos" link="/list" img="/Subsection.webp" />
           </div>
         </div>
 
